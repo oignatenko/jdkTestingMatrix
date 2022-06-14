@@ -4,17 +4,13 @@ on:
   push:
     paths:
       - '.github/workflows/java8.yml'
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '45 */3 * * *'
-
 jobs:
   java8-jdk:
     # internal comment counter: 100
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [ubuntu-18.04]
         update: [x, 332, 322, 312, 302, 292, 282, 275, 272, 265, 262, 252, 242, 232, 222, 212, 202, 201, 192, 181, 172, 163, 162, 152, 144, 131, 121, 112, 102, 101, 92, 91, 72, 71]
         exclude:
           - os: ubuntu-18.04
